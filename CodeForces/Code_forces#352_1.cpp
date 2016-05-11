@@ -1,7 +1,4 @@
 #include <iostream>
-#include <vector>
-
-using namespace std;
 
 int main()
 {
@@ -46,8 +43,8 @@ int main()
         }
     }
 
-    cin >> nr;
-    cout << b[nr];
+    std::cin >> nr;
+    std::cout << b[nr];
 
     return 0;
 }
