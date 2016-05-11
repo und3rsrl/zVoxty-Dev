@@ -17,13 +17,7 @@ int main()
     for(int i = 1; i <= 1000; i++){
         a[i] = i;
     }
-    for(int i = 1; i <= 100; i++){
-        cout << a[i] << " ";
-    }
-
-    cout << "\n\n\n";
-
-
+    
     while(j <= 1000){
         if(j < 10){
             b[j] = a[j];
