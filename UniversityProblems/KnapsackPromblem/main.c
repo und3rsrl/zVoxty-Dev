@@ -8,18 +8,18 @@ int max(int a, int b) { return (a > b)? a : b; }
 int knapSack(int W, int wt[], int val[], int n)
 {
    // Base Case
-   if (n == 0 || W == 0)
+   if (n == 0 || W == 0) // daca sacul nu are "greutate" sau nu exista obiecte se iese din program
        return 0;
 
    // If weight of the nth item is more than Knapsack capacity W, then
    // this item cannot be included in the optimal solution
-   if (wt[n-1] > W)
-       return knapSack(W, wt, val, n-1);
+   if (wt[n-1] > W) // daca greutatea ultimului obiect este mai mare ca si capacitatea sacului il excludem
+       return knapSack(W, wt, val, n-1); // si apelam functia dar fara acest obiect(n-1)
 
    // Return the maximum of two cases:
    // (1) nth item included
    // (2) not included
-   else return max( val[n-1] + knapSack(W-wt[n-1], wt, val, n-1),
+   else return max( val[n-1] + knapSack(W-wt[n-1], wt, val, n-1), // altfel daca obiectul incape in sac returnam maximul valori obiectelor
                     knapSack(W, wt, val, n-1)
                   );
 }
@@ -27,10 +27,10 @@ int knapSack(int W, int wt[], int val[], int n)
 // Driver program to test above function
 int main()
 {
-    int val[] = {60, 100, 120};
-    int wt[] = {10, 20, 30};
-    int  W = 50;
-    int n = sizeof(val)/sizeof(val[0]);
+    int val[] = {60, 100, 120}; // valoarea obiectelor
+    int wt[] = {10, 20, 30}; // greutatea obiectelor
+    int  W = 50; // capacitatea rucsacului
+    int n = sizeof(val)/sizeof(val[0]); // numarul de obiecte
     printf("%d", knapSack(W, wt, val, n));
     return 0;
 }
